@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var screens = $UI/Screens
+@onready var opponentContainer = $UI/Screens/Arena/OpponentContainer
 
 func _ready():
 	print("Game started")
@@ -9,7 +10,13 @@ func _ready():
 	var opponent = GameManager.opponent
 	var referee = GameManager.referee
 
+	_playOpponentEntranceAnimation()
 	referee.startMatch(player, opponent)
+
+func _playOpponentEntranceAnimation():
+	var opponentVisual = opponentContainer.get_child(0) as OpponentVisual
+	if opponentVisual:
+		opponentVisual.playEntranceAnimation()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_down"):

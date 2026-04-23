@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/common/arena.tscn" id="2_0dabs"]
 [ext_resource type="PackedScene" uid="uid://caj4uhqb1qhgs" path="res://Scenes/opponents/opponent1.tscn" id="3_7yj8c"]
 [ext_resource type="PackedScene" uid="uid://cbnpa7vs7ii3e" path="res://Scenes/common/config_area.tscn" id="4_a4e7o"]
+[ext_resource type="Script" uid="uid://b28xud47veguw" path="res://scripts/visuals/opponent_visual.gd" id="4_uupxf"]
 
 [node name="GameScene" type="Node2D" unique_id=1467769094]
 script = ExtResource("1_pleot")
@@ -17,6 +18,7 @@ script = ExtResource("1_pleot")
 [node name="OpponentContainer" type="Node2D" parent="UI/Screens/Arena" unique_id=980667885]
 
 [node name="Opponent1" parent="UI/Screens/Arena/OpponentContainer" unique_id=315027034 instance=ExtResource("3_7yj8c")]
+script = ExtResource("4_uupxf")
 
 [node name="ConfigArea" parent="UI/Screens" unique_id=136853237 instance=ExtResource("4_a4e7o")]
 position = Vector2(0, 720)
