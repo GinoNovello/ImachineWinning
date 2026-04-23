@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cbnpa7vs7ii3e"]
+
+[ext_resource type="Texture2D" uid="uid://be1yrcwqrspyg" path="res://Images/ConfigBackground.png" id="1_tk2o4"]
+[ext_resource type="Texture2D" uid="uid://bxcplrjgn4trv" path="res://Images/ConfigTable.png" id="2_nmm7f"]
+
+[node name="ConfigArea" type="Node2D" unique_id=136853237]
+
+[node name="ConfigBackground" type="Sprite2D" parent="." unique_id=13207611]
+position = Vector2(576, 325)
+scale = Vector2(1.1979166, 1.2259259)
+texture = ExtResource("1_tk2o4")
+
+[node name="ConfigTable" type="Sprite2D" parent="." unique_id=1138098881]
+position = Vector2(579, 327)
+scale = Vector2(1.2020833, 1.2111111)
+texture = ExtResource("2_nmm7f")
