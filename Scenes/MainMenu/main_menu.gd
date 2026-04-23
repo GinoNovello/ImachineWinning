@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_new_game_pressed() -> void:
-	print("New Game Pressed")
+	GameManager.start_new_game()
 
 
 func _on_options_pressed() -> void:
