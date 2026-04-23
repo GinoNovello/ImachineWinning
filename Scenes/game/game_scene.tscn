@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://850nyvt7h7o1"]
 
 [ext_resource type="Script" uid="uid://ww4h4h5mwyx5" path="res://scripts/flow/game_scene.gd" id="1_pleot"]
+[ext_resource type="PackedScene" uid="uid://vudeuxu7ft31" path="res://Scenes/common/arena.tscn" id="2_0dabs"]
+[ext_resource type="PackedScene" uid="uid://caj4uhqb1qhgs" path="res://Scenes/opponents/opponent1.tscn" id="3_7yj8c"]
 
 [node name="GameScene" type="Node2D" unique_id=1467769094]
 script = ExtResource("1_pleot")
+
+[node name="Arena" parent="." unique_id=1421027996 instance=ExtResource("2_0dabs")]
+
+[node name="OpponentContainer" type="Node2D" parent="." unique_id=980667885]
+
+[node name="Opponent1" parent="OpponentContainer" unique_id=315027034 instance=ExtResource("3_7yj8c")]

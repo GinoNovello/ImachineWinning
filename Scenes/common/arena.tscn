@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://vudeuxu7ft31"]
+
+[ext_resource type="Texture2D" uid="uid://bj0piam7gpcxh" path="res://Images/Background.png" id="1_sea1x"]
+[ext_resource type="Texture2D" uid="uid://b28unl433nmp0" path="res://Images/Table.png" id="2_s1ktn"]
+
+[node name="Arena" type="Node2D" unique_id=1421027996]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1738475104]
+position = Vector2(571.5, 325)
+scale = Vector2(1.203125, 1.2037038)
+texture = ExtResource("1_sea1x")
+
+[node name="Table" type="Sprite2D" parent="." unique_id=412420291]
+position = Vector2(579, 331)
+scale = Vector2(1.1999999, 1.2148148)
+texture = ExtResource("2_s1ktn")

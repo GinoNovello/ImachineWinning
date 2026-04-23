@@ -14,3 +14,8 @@ func setup_match():
 	referee = Referee.new()
 
 	referee.startMatch(player, opponent)
+
+func load_opponent_view():
+	var scene = load("res://scenes/opponents/opponent1.tscn")
+	var view = scene.instantiate()
+	$OpponentContainer.add_child(view)
