@@ -1,16 +1,36 @@
-# Godot 4+ specific ignores
+# -------------------------
+# Godot 4+
+# -------------------------
 .godot/
-.nomedia
-
-# Godot-specific ignores
 .import/
+*.import
+*.uid
+
+# -------------------------
+# Export configs (opcionales)
+# -------------------------
 export.cfg
 export_credentials.cfg
 
-# Imported translations (automatically generated from CSV files)
+# -------------------------
+# Translations
+# -------------------------
 *.translation
 
-# Mono-specific ignores
+# -------------------------
+# Mono / C# (aunque no lo uses, no molesta)
+# -------------------------
 .mono/
 data_*/
 mono_crash.*.json
+
+# -------------------------
+# OS / Editor basura
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# VS Code (opcional)
+# -------------------------
+.vscode/
