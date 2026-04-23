@@ -1,6 +1,5 @@
-extends Opponent
-class_name Opponent1
+extends Node
+class_name Opponent
 
-func _init():
-	strength = 10
-	tolerance = 3
+var strength: int
+var tolerance: int = 5

@@ -1,11 +1,9 @@
 extends Node
+class_name Referee
 
+var player: Player
+var opponent: Opponent
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func startMatch(player: Player, opponent: Opponent):
+	self.player = player
+	self.opponent = opponent
