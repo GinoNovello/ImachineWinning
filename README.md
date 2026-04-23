@@ -113,27 +113,27 @@ class_name Player
 var machine: Machine
 
 func configureMachine(minForce: int, maxForce: int):
-    machine.configure(minForce, maxForce)
+	machine.configure(minForce, maxForce)
 
 func playAgainst(opponent: Opponent, referee: Referee):
-    var force = machine.generateForce()
-    referee.judgeMatch(self, opponent, force)
+	var force = machine.generateForce()
+	referee.judgeMatch(self, opponent, force)
 
 func win():
-    # trigger animations and advance
-    pass
+	# trigger animations and advance
+	pass
 
 func lose():
-    # trigger animations and return to menu
-    pass
+	# trigger animations and return to menu
+	pass
 
 func caughtCheating():
-    # cheating detected
-    pass
+	# cheating detected
+	pass
 
 func caughtCheatingAfterTimeIsOver():
-    # timeout cheating detected
-    pass
+	# timeout cheating detected
+	pass
 ```
 
 ---
@@ -149,11 +149,11 @@ var minForce: int
 var maxForce: int
 
 func configure(minForce: int, maxForce: int):
-    self.minForce = minForce
-    self.maxForce = maxForce
+	self.minForce = minForce
+	self.maxForce = maxForce
 
 func generateForce() -> int:
-    return randi_range(minForce, maxForce)
+	return randi_range(minForce, maxForce)
 ```
 
 ---
@@ -169,23 +169,23 @@ var strength: int
 var tolerance: int = 5
 
 func competeAgainst(player: Player, playerForce: int, referee: Referee):
-    if playerForce < strength:
-        referee.declareLose(player, self)
-        return
+	if playerForce < strength:
+		referee.declareLose(player, self)
+		return
 
-    if abs(playerForce - strength) <= tolerance:
-        referee.declareHonestWin(player, self)
-        return
+	if abs(playerForce - strength) <= tolerance:
+		referee.declareHonestWin(player, self)
+		return
 
-    referee.declareCheating(player, self)
+	referee.declareCheating(player, self)
 
 func onDefeat():
-    # play lose animation
-    pass
+	# play lose animation
+	pass
 
 func onVictory():
-    # play win animation
-    pass
+	# play win animation
+	pass
 ```
 
 ---
@@ -197,8 +197,8 @@ class_name Opponent1
 extends Opponent
 
 func _init():
-    strength = 10
-    tolerance = 3
+	strength = 10
+	tolerance = 3
 ```
 
 ➡ Only define data, never duplicate logic.
@@ -229,13 +229,13 @@ var timeLimit: float
 var elapsed: float = 0
 
 func start():
-    elapsed = 0
+	elapsed = 0
 
 func update(delta):
-    elapsed += delta
+	elapsed += delta
 
 func timeIsOver() -> bool:
-    return elapsed >= timeLimit
+	return elapsed >= timeLimit
 ```
 
 ---
@@ -252,18 +252,18 @@ var player: Player
 var opponent: Opponent
 
 func startMatch(player: Player, opponent: Opponent):
-    self.player = player
-    self.opponent = opponent
-    clock.start()
+	self.player = player
+	self.opponent = opponent
+	clock.start()
 
 func update(delta):
-    clock.update(delta)
+	clock.update(delta)
 
-    if clock.timeIsOver():
-        declareTimeLoss(player)
+	if clock.timeIsOver():
+		declareTimeLoss(player)
 
 func judgeMatch(player: Player, opponent: Opponent, playerForce: int):
-    opponent.competeAgainst(player, playerForce, self)
+	opponent.competeAgainst(player, playerForce, self)
 ```
 
 ---
@@ -272,18 +272,18 @@ func judgeMatch(player: Player, opponent: Opponent, playerForce: int):
 
 ```gdscript
 func declareHonestWin(player: Player, opponent: Opponent):
-    opponent.onDefeat()
-    player.win()
+	opponent.onDefeat()
+	player.win()
 
 func declareLose(player: Player, opponent: Opponent):
-    opponent.onVictory()
-    player.lose()
+	opponent.onVictory()
+	player.lose()
 
 func declareCheating(player: Player, opponent: Opponent):
-    player.caughtCheating()
+	player.caughtCheating()
 
 func declareTimeLoss(player: Player):
-    player.caughtCheatingAfterTimeIsOver()
+	player.caughtCheatingAfterTimeIsOver()
 ```
 
 ---
@@ -395,4 +395,3 @@ Because:
 * Violates separation of responsibilities
 
 ---
-

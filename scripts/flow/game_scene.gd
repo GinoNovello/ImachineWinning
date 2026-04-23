@@ -31,8 +31,8 @@ func _process(delta):
 
 func show_config():
 	var tween = create_tween()
-	tween.tween_property(screens, "position:y", -720, 0.3)
+	tween.tween_property(screens, "position:y", -720, 0.15)
 
 func show_match():
 	var tween = create_tween()
-	tween.tween_property(screens, "position:y", 0, 0.3)
+	tween.tween_property(screens, "position:y", 0, 0.15)
