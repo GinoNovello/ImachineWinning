@@ -4,14 +4,19 @@ extends Node2D
 @onready var machine = $PlayerArm/Machine
 @onready var force_label = $ForceLabel
 
+var _space_held: bool = false
+
 func _process(_delta):
 	handle_input()
 	update_visuals()
 	update_force_label()
 
 func handle_input():
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_physical_key_pressed(KEY_SPACE) and not _space_held:
 		toggle_sleeve()
+		_space_held = true
+	elif not Input.is_physical_key_pressed(KEY_SPACE):
+		_space_held = false
 
 	if Input.is_action_just_pressed("ui_up"):
 		exit_config()

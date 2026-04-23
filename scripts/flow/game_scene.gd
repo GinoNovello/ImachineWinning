@@ -3,6 +3,8 @@ extends Node2D
 @onready var screens = $UI/Screens
 @onready var opponentContainer = $UI/Screens/Arena/OpponentContainer
 
+var inArena: bool = true
+
 func _ready():
 	print("Game started")
 
@@ -25,11 +27,23 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_up"):
 		show_match()
 
+	if Input.is_action_just_pressed("ui_accept") and inArena:
+		execute_match()
+
+func execute_match():
+	var player = GameManager.player
+	var opponent = GameManager.opponent
+	var referee = GameManager.referee
+
+	player.playAgainst(opponent, referee)
+
 func show_config():
+	inArena = false
 	var tween = create_tween()
 	tween.tween_property(screens, "position:y", -720, 0.15)
 
 func show_match():
+	inArena = true
 	var tween = create_tween()
 	tween.tween_property(screens, "position:y", 0, 0.15)
 

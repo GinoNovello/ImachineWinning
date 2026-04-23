@@ -43,9 +43,11 @@ func playAgainst(opponent: Opponent, referee: Referee):
 
 func win():
 	GameManager.player_won()
+	GameManager.go_to_win_scene()
 
 func lose():
 	GameManager.player_lost()
+	GameManager.go_to_lose_scene()
 
 func caughtCheating():
 	GameManager.go_to_lose_scene()

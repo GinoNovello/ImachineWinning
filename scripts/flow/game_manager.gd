@@ -31,3 +31,6 @@ func player_lost():
 
 func go_to_lose_scene():
 	get_tree().change_scene_to_file("res://Scenes/results/lose_scene.tscn")
+
+func go_to_win_scene():
+	get_tree().change_scene_to_file("res://Scenes/results/win_scene.tscn")
