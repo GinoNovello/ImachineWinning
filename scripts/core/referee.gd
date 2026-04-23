@@ -17,7 +17,9 @@ func startMatch(_player: Player, _opponent: Opponent):
 	checkImmediateConditions()
 
 func checkImmediateConditions():
+	print("[Referee] checkImmediateConditions - sleeveUp: ", player.isSleeveUp())
 	if player.isSleeveUp():
+		print("[Referee] CHEATING detected - sleeve is up!")
 		declareCheating(player, opponent)
 
 func update(_delta):

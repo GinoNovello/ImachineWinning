@@ -6,10 +6,19 @@ extends Node2D
 
 var _space_held: bool = false
 
+var isActive: bool = false
+
 func _process(_delta):
-	handle_input()
+	if isActive:
+		handle_input()
 	update_visuals()
 	update_force_label()
+
+func activate():
+	isActive = true
+
+func deactivate():
+	isActive = false
 
 func handle_input():
 	if Input.is_physical_key_pressed(KEY_SPACE) and not _space_held:

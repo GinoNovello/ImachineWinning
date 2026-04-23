@@ -39,11 +39,11 @@ func can_configure() -> bool:
 
 func playAgainst(opponent: Opponent, referee: Referee):
 	var force = machine.generateForce()
+	print("[Player] playAgainst - force: ", force, " sleeveUp: ", sleeveUp)
 	referee.judgeMatch(self, opponent, force)
 
 func win():
 	GameManager.player_won()
-	GameManager.go_to_win_scene()
 
 func lose():
 	GameManager.player_lost()
