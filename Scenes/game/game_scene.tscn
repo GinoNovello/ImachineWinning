@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://850nyvt7h7o1"]
 
 [ext_resource type="Script" uid="uid://ww4h4h5mwyx5" path="res://scripts/flow/game_scene.gd" id="1_pleot"]
-[ext_resource type="PackedScene" uid="uid://vudeuxu7ft31" path="res://Scenes/common/arena.tscn" id="2_0dabs"]
+[ext_resource type="PackedScene" path="res://Scenes/common/arena.tscn" id="2_0dabs"]
 [ext_resource type="PackedScene" uid="uid://caj4uhqb1qhgs" path="res://Scenes/opponents/opponent1.tscn" id="3_7yj8c"]
 [ext_resource type="PackedScene" uid="uid://cbnpa7vs7ii3e" path="res://Scenes/common/config_area.tscn" id="4_a4e7o"]
 
