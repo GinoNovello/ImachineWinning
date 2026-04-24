@@ -1,13 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://mokv6ysskdqi"]
 
-[ext_resource type="Script" path="res://scripts/visuals/opponent_visual.gd" id="1_visual"]
-[ext_resource type="Texture2D" path="res://Images/Opponent1.png" id="2_texture"]
+[ext_resource type="Script" uid="uid://b28xud47veguw" path="res://scripts/visuals/opponent_visual.gd" id="1_visual"]
+[ext_resource type="Texture2D" uid="uid://44dou7raetg7" path="res://Images/Opponent1.png" id="2_texture"]
 
-[node name="Opponent6" type="Node2D"]
+[node name="Opponent6" type="Node2D" unique_id=1503904537]
 script = ExtResource("1_visual")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.9, 0.8, 1.0, 1)
-position = Vector2(577, 324)
-scale = Vector2(1.2, 1.1925926)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1719027658]
+modulate = Color(0.9, 0.8, 1, 1)
+position = Vector2(480, 270)
 texture = ExtResource("2_texture")

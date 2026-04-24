@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcxo2s35eoqu4"]
 
 [ext_resource type="Texture2D" uid="uid://drwf6f6l4smcc" path="res://Images/Menu.jpeg" id="1_eiy7p"]
-[ext_resource type="Script" uid="uid://bfvt55xxfriv2" path="res://Scenes/MainMenu/main_menu.gd" id="1_h7a2f"]
+[ext_resource type="Script" uid="uid://duvwyogyw76gk" path="res://Scenes/MainMenu/main_menu.gd" id="1_h7a2f"]
 [ext_resource type="FontFile" uid="uid://b1yhde38f0p65" path="res://Fonts/Jember Sketch.ttf" id="2_h7a2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qoqlk"]
@@ -56,10 +56,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 142.0
-offset_top = -218.0
-offset_right = 449.0
-offset_bottom = 117.0
+offset_left = 128.0
+offset_top = -123.0
+offset_right = 429.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 26
@@ -105,10 +105,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 122.0
-offset_top = -292.0
-offset_right = 472.0
-offset_bottom = -227.0
+offset_left = -50.0
+offset_top = -229.0
+offset_right = 427.27692
+offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_h7a2f")
