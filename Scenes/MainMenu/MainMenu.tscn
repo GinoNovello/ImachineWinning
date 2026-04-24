@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bcxo2s35eoqu4"]
+
+[ext_resource type="Texture2D" uid="uid://drwf6f6l4smcc" path="res://Images/Menu.jpeg" id="1_eiy7p"]
+[ext_resource type="Script" uid="uid://bfvt55xxfriv2" path="res://Scenes/MainMenu/main_menu.gd" id="1_h7a2f"]
+[ext_resource type="FontFile" uid="uid://b1yhde38f0p65" path="res://Fonts/Jember Sketch.ttf" id="2_h7a2f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qoqlk"]
+texture = ExtResource("1_eiy7p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjwba"]
+bg_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7a2f"]
+bg_color = Color(4.5724212e-07, 0.19441411, 0.1978297, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiy7p"]
+bg_color = Color(1.4439226e-07, 0.33335435, 0.33814734, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[node name="MainMenu" type="Control" unique_id=1059092303]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h7a2f")
+
+[node name="Panel" type="Panel" parent="." unique_id=550952169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qoqlk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1716931376]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 142.0
+offset_top = -218.0
+offset_right = 449.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=586842643]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("2_h7a2f")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eiy7p")
+text = "New Game"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=2136463958]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("2_h7a2f")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eiy7p")
+text = "Options
+"
+
+[node name="Exit Game" type="Button" parent="VBoxContainer" unique_id=290060114]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("2_h7a2f")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eiy7p")
+text = "Exit Game"
+
+[node name="Label" type="Label" parent="." unique_id=223332400]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 122.0
+offset_top = -292.0
+offset_right = 472.0
+offset_bottom = -227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_h7a2f")
+theme_override_font_sizes/font_size = 55
+text = "IMachine Winning"
+
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_exit_game_pressed"]

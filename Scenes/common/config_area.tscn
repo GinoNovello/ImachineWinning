@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cbnpa7vs7ii3e"]
+
+[ext_resource type="Texture2D" uid="uid://be1yrcwqrspyg" path="res://Images/ConfigBackground.png" id="1_tk2o4"]
+[ext_resource type="Script" uid="uid://in8momsxhoyk" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
+[ext_resource type="Texture2D" uid="uid://bxcplrjgn4trv" path="res://Images/ConfigTable.png" id="2_nmm7f"]
+[ext_resource type="Texture2D" uid="uid://cfbrthj7r62gf" path="res://Images/Sleeve.png" id="3_bf0jg"]
+[ext_resource type="Texture2D" uid="uid://bl2jmgf7ex8r8" path="res://Images/Machine.png" id="4_3o4ji"]
+[ext_resource type="Script" uid="uid://cmx7o55m51lth" path="res://scripts/core/machine.gd" id="6_4vnhm"]
+
+[node name="ConfigArea" type="Node2D" unique_id=136853237]
+script = ExtResource("1_tm3he")
+
+[node name="ConfigBackground" type="Sprite2D" parent="." unique_id=13207611]
+position = Vector2(576, 325)
+scale = Vector2(1.1979166, 1.2259259)
+texture = ExtResource("1_tk2o4")
+
+[node name="ConfigTable" type="Sprite2D" parent="." unique_id=1138098881]
+position = Vector2(579, 327)
+scale = Vector2(1.2020833, 1.2111111)
+texture = ExtResource("2_nmm7f")
+
+[node name="PlayerArm" type="Node2D" parent="." unique_id=1602004681]
+
+[node name="Sleeve" type="Sprite2D" parent="PlayerArm" unique_id=449974510]
+position = Vector2(575.5, 320.5)
+scale = Vector2(1.1989583, 1.2166667)
+texture = ExtResource("3_bf0jg")
+
+[node name="Machine" type="Sprite2D" parent="PlayerArm" unique_id=1144025245]
+visible = false
+position = Vector2(575.5, 324)
+scale = Vector2(1.1989583, 1.2074074)
+texture = ExtResource("4_3o4ji")
+script = ExtResource("6_4vnhm")
+
+[node name="ForceLabel" type="Label" parent="." unique_id=2008066103]
+offset_left = 588.0
+offset_top = 3.0
+offset_right = 1112.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 96
+text = "Force: 0"

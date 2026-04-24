@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bnj8k7w0nj701"]
+
+[ext_resource type="Texture2D" uid="uid://drwf6f6l4smcc" path="res://Images/Menu.jpeg" id="1_kcm7k"]
+
+[node name="LoseScene" type="Node2D" unique_id=1929948916]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732400748]
+position = Vector2(578.25, 324)
+scale = Vector2(0.9078431, 0.9162011)
+texture = ExtResource("1_kcm7k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=527169767]
+offset_left = 658.0
+offset_top = 48.0
+offset_right = 1127.0
+offset_bottom = 448.0
+color = Color(0.015686275, 0.015686275, 0.015686275, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1440450864]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 123.0
+offset_right = 457.0
+offset_bottom = 260.0
+theme_override_font_sizes/font_size = 96
+text = "You Lose!"
