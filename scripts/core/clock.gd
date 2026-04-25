@@ -62,6 +62,7 @@ func refreshLabel():
 		return
 	var remaining = max(0.0, timeLimit - elapsed)
 	var totalSeconds = int(ceil(remaining))
+	@warning_ignore("integer_division")
 	var minutes = totalSeconds / 60
 	var seconds = totalSeconds % 60
 	label.text = "%02d:%02d" % [minutes, seconds]

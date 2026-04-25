@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cbnpa7vs7ii3e"]
 
 [ext_resource type="Texture2D" uid="uid://be1yrcwqrspyg" path="res://Images/ConfigBackground.png" id="1_tk2o4"]
-[ext_resource type="Script" uid="uid://dlsrt3k6g6c3m" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
+[ext_resource type="Script" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
 [ext_resource type="Texture2D" uid="uid://bxcplrjgn4trv" path="res://Images/ConfigTable.png" id="2_nmm7f"]
 [ext_resource type="Texture2D" uid="uid://cfbrthj7r62gf" path="res://Images/Sleeve.png" id="3_bf0jg"]
 [ext_resource type="Texture2D" uid="uid://bl2jmgf7ex8r8" path="res://Images/Machine.png" id="4_3o4ji"]
-[ext_resource type="Script" uid="uid://b3mi1jksvban1" path="res://scripts/core/machine.gd" id="6_4vnhm"]
+[ext_resource type="Script" path="res://scripts/core/machine.gd" id="6_4vnhm"]
 
 [node name="ConfigArea" type="Node2D" unique_id=136853237]
 script = ExtResource("1_tm3he")

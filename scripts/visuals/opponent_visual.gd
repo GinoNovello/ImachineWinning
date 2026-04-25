@@ -2,6 +2,7 @@ extends Node2D
 class_name OpponentVisual
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var finalPosition: Vector2
 var startOffsetX: float = 400.0
@@ -33,3 +34,9 @@ func playEntranceAnimation():
 	tween.tween_property(sprite, "position", finalPosition, 0.1)
 	
 	return tween
+
+func playGameAnimation():
+	sprite.visible = false
+	animatedSprite.visible = true
+	animatedSprite.z_index = 10  # Poner adelante de todo
+	animatedSprite.play("READY")

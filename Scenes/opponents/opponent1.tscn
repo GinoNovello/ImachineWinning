@@ -2,6 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://44dou7raetg7" path="res://Images/Opponent1.png" id="1_cqb0i"]
 [ext_resource type="Script" uid="uid://b28xud47veguw" path="res://scripts/visuals/opponent_visual.gd" id="2_visual"]
+[ext_resource type="Texture2D" uid="uid://dfial7n0s841" path="res://Images/Opponent1_ready.png" id="3_r1ko1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87lha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r1ko1")
+}],
+"loop": true,
+"name": &"READY",
+"speed": 5.0
+}]
 
 [node name="Opponent1" type="Node2D" unique_id=315027034]
 script = ExtResource("2_visual")
@@ -9,3 +21,9 @@ script = ExtResource("2_visual")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185436456]
 position = Vector2(480, 270)
 texture = ExtResource("1_cqb0i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=987654321]
+visible = false
+position = Vector2(480, 270)
+sprite_frames = SubResource("SpriteFrames_87lha")
+animation = &"READY"
