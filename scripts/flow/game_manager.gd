@@ -1,5 +1,7 @@
 extends Node
 
+signal round_won
+
 var player: Player
 var opponent: Opponent
 var referee: Referee
@@ -54,11 +56,11 @@ func get_current_opponent_scene() -> PackedScene:
 
 func player_won():
 	current_opponent_index += 1
-	
+
 	if current_opponent_index >= opponents.size():
 		go_to_win_scene()
 	else:
-		next_opponent()
+		round_won.emit()
 
 func next_opponent():
 	opponent = create_opponent()
