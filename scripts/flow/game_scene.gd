@@ -14,12 +14,11 @@ func _ready():
 	var opponent = GameManager.opponent
 	var referee = GameManager.referee
 
-	referee.clock = clock
-	clock.time_over.connect(_on_time_over)
+	referee.force_match.connect(_on_force_match)
 
 	_loadOpponentVisual()
-	referee.startMatch(player, opponent)
-	_playOpponentEntranceAnimation()
+	await _playOpponentEntranceAnimation()
+	referee.startGame(player, opponent, clock)
 
 func _loadOpponentVisual():
 	for child in opponentContainer.get_children():
@@ -31,17 +30,14 @@ func _loadOpponentVisual():
 
 func _playOpponentEntranceAnimation():
 	if opponentContainer.get_child_count() == 0:
-		clock.start()
 		return
 
 	var opponentVisual = opponentContainer.get_child(0) as OpponentVisual
 	if opponentVisual == null:
-		clock.start()
 		return
 
 	var tween = opponentVisual.playEntranceAnimation()
 	await tween.finished
-	clock.start()
 
 func _process(delta):
 	GameManager.referee.update(delta)
@@ -83,7 +79,7 @@ func start_match():
 
 	referee.startMatch(player, opponent)
 
-func _on_time_over():
+func _on_force_match():
 	if not inArena:
 		show_match()
 	execute_match()
