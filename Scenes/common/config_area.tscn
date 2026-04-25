@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfbrthj7r62gf" path="res://Images/Sleeve.png" id="3_bf0jg"]
 [ext_resource type="Texture2D" uid="uid://bl2jmgf7ex8r8" path="res://Images/Machine.png" id="4_3o4ji"]
 [ext_resource type="Texture2D" uid="uid://bsov7qdcclntu" path="res://Images/needle.png" id="5_needle"]
-[ext_resource type="Script" uid="uid://b3mi1jksvban1" path="res://scripts/core/machine.gd" id="6_4vnhm"]
+[ext_resource type="Script" path="res://scripts/core/machine.gd" id="6_4vnhm"]
 [ext_resource type="AudioStream" uid="uid://b6asx4pd1pxfu" path="res://Sounds/switch.wav" id="7_switch"]
 
 [node name="ConfigArea" type="Node2D" unique_id=136853237]
