@@ -3,6 +3,7 @@ extends Node2D
 @onready var sleeve = $PlayerArm/Sleeve
 @onready var machine = $PlayerArm/Machine
 @onready var needle: Sprite2D = $PlayerArm/Machine/Needle
+@onready var tick_sound: AudioStreamPlayer = $PlayerArm/Machine/Needle/TickSound
 
 @export var needle_min_rotation: float = -7 * PI / 12
 @export var needle_max_rotation: float = PI / 2
@@ -102,6 +103,9 @@ func update_needle():
 	if force == _needle_force:
 		return
 	_needle_force = force
+
+	if tick_sound and tick_sound.stream:
+		tick_sound.play()
 
 	if _needle_tween:
 		_needle_tween.kill()
