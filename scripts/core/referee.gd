@@ -38,7 +38,7 @@ func checkImmediateConditions():
 	print("[Referee] checkImmediateConditions - sleeveUp: ", player.isSleeveUp())
 	if player.isSleeveUp():
 		print("[Referee] CHEATING detected - sleeve is up!")
-		declareCheating(player, opponent)
+		declareCheatingForSleeveUp(player, opponent)
 
 func update(delta):
 	if not match_started:
@@ -72,5 +72,13 @@ func declareLose(_player: Player, _opponent: Opponent):
 	_player.lose()
 
 func declareCheating(_player: Player, _opponent: Opponent):
+	match_started = false
+	if opponentVisual != null:
+		opponentVisual.playDeathAnimation()
+		await opponentVisual.animatedSprite.animation_finished
+	_opponent.onDefeat()
+	_player.caughtCheating()
+
+func declareCheatingForSleeveUp(_player: Player, _opponent: Opponent):
 	match_started = false
 	_player.caughtCheating()
