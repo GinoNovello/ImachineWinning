@@ -22,7 +22,6 @@ func startGame(_player: Player, _opponent: Opponent, _clock: Clock):
 
 	clock.start()
 	match_started = true
-	checkImmediateConditions()
 
 func startMatch(_player: Player, _opponent: Opponent):
 	player = _player
