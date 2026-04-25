@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cbnpa7vs7ii3e"]
 
 [ext_resource type="Texture2D" uid="uid://be1yrcwqrspyg" path="res://Images/ConfigBackground.png" id="1_tk2o4"]
-[ext_resource type="Script" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
+[ext_resource type="Script" uid="uid://in8momsxhoyk" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
 [ext_resource type="Texture2D" uid="uid://bxcplrjgn4trv" path="res://Images/ConfigTable.png" id="2_nmm7f"]
 [ext_resource type="Texture2D" uid="uid://cfbrthj7r62gf" path="res://Images/Sleeve.png" id="3_bf0jg"]
-[ext_resource type="Texture2D" uid="uid://bl2jmgf7ex8r8" path="res://Images/Machine.png" id="4_3o4ji"]
-[ext_resource type="Texture2D" uid="uid://bsov7qdcclntu" path="res://Images/needle.png" id="5_needle"]
-[ext_resource type="Script" path="res://scripts/core/machine.gd" id="6_4vnhm"]
+[ext_resource type="Texture2D" uid="uid://dkq3y267npkkw" path="res://Images/Machine.png" id="4_3o4ji"]
+[ext_resource type="Script" uid="uid://cmx7o55m51lth" path="res://scripts/core/machine.gd" id="6_4vnhm"]
 [ext_resource type="AudioStream" uid="uid://b6asx4pd1pxfu" path="res://Sounds/switch.wav" id="7_switch"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lrojf"]
+load_path = "res://.godot/imported/needle.png-053d541dfe7481ed52976f0ac02b8758.ctex"
 
 [node name="ConfigArea" type="Node2D" unique_id=136853237]
 script = ExtResource("1_tm3he")
@@ -32,9 +34,9 @@ texture = ExtResource("4_3o4ji")
 script = ExtResource("6_4vnhm")
 
 [node name="Needle" type="Sprite2D" parent="PlayerArm/Machine" unique_id=1903461775]
-position = Vector2(196, 136)
+position = Vector2(206, 155)
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("5_needle")
+texture = SubResource("CompressedTexture2D_lrojf")
 offset = Vector2(39, -243)
 
 [node name="TickSound" type="AudioStreamPlayer" parent="PlayerArm/Machine/Needle" unique_id=1903461776]
