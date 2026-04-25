@@ -80,7 +80,7 @@ func declareCheating(_player: Player, _opponent: Opponent):
 		await opponentVisual.animatedSprite.animation_finished
 		await opponentVisual.get_tree().create_timer(1.0).timeout
 	_opponent.onDefeat()
-	_player.caughtCheating()
+	_player.caughtForExcessiveForce()
 
 func declareCheatingForSleeveUp(_player: Player, _opponent: Opponent):
 	match_started = false

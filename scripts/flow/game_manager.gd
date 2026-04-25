@@ -74,8 +74,8 @@ func go_to_lose_scene():
 func go_to_cheating_lose_scene():
 	get_tree().change_scene_to_file("res://Scenes/results/lose_cheating_scene.tscn")
 
-func go_to_timeout_lose_scene():
-	get_tree().change_scene_to_file("res://Scenes/results/lose_timeout_scene.tscn")
+func go_to_excessive_force_lose_scene():
+	get_tree().change_scene_to_file("res://Scenes/results/lose_excessive_force_scene.tscn")
 
 func go_to_win_scene():
 	get_tree().change_scene_to_file("res://Scenes/results/win_scene.tscn")
