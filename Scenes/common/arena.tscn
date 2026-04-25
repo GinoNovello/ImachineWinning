@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bj0piam7gpcxh" path="res://Images/Background.png" id="1_sea1x"]
 [ext_resource type="Texture2D" uid="uid://b28unl433nmp0" path="res://Images/Table.png" id="2_s1ktn"]
 [ext_resource type="Texture2D" uid="uid://bv17rwxximiw1" path="res://Images/Clock.png" id="3_s1ktn"]
+[ext_resource type="FontFile" uid="uid://cvvfyj0p4rkid" path="res://Fonts/ArchitectsDaughter-Regular.ttf" id="4_n5r5p"]
+[ext_resource type="Script" uid="uid://d0oeqvq3ock2s" path="res://scripts/core/clock.gd" id="5_k4mq0"]
+[ext_resource type="AudioStream" uid="uid://xgvka2r1cqk0" path="res://Sounds/tick_dong.wav" id="6_nbx6o"]
 
 [node name="Arena" type="Node2D" unique_id=1421027996]
 
@@ -18,3 +21,16 @@ texture = ExtResource("2_s1ktn")
 position = Vector2(171, 115)
 scale = Vector2(0.20515388, 0.22241211)
 texture = ExtResource("3_s1ktn")
+script = ExtResource("5_k4mq0")
+
+[node name="Label" type="Label" parent="Clock" unique_id=504805153]
+offset_left = -316.83533
+offset_top = -80.93082
+offset_right = 357.16467
+offset_bottom = 276.06918
+theme_override_fonts/font = ExtResource("4_n5r5p")
+theme_override_font_sizes/font_size = 244
+text = "00:10"
+
+[node name="Tick" type="AudioStreamPlayer" parent="Clock" unique_id=1231555861]
+stream = ExtResource("6_nbx6o")

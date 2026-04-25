@@ -3,6 +3,7 @@ class_name Referee
 
 var player: Player
 var opponent: Opponent
+var clock: Clock
 
 var match_started: bool = false
 
@@ -22,13 +23,12 @@ func checkImmediateConditions():
 		print("[Referee] CHEATING detected - sleeve is up!")
 		declareCheating(player, opponent)
 
-func update(_delta):
+func update(delta):
 	if not match_started:
 		return
 
-	# TODO: time system not implemented yet
-	# if timeIsOver:
-	#     declareTimeLoss(player)
+	if clock:
+		clock.update(delta)
 
 func judgeMatch(_player: Player, _opponent: Opponent, playerForce: int):
 	_opponent.competeAgainst(_player, playerForce, self)
@@ -45,7 +45,3 @@ func declareLose(_player: Player, _opponent: Opponent):
 
 func declareCheating(_player: Player, _opponent: Opponent):
 	_player.caughtCheating()
-
-# TODO:
-# func declareTimeLoss(player: Player):
-#     player.caughtCheatingAfterTimeIsOver()
