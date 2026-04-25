@@ -11,6 +11,12 @@ var _space_held: bool = false
 var _needle_force: int = -1
 var _needle_tween: Tween
 
+const HOLD_REPEAT_DELAY: float = 0.35
+const HOLD_REPEAT_INTERVAL: float = 0.07
+var _hold_dir: int = 0
+var _hold_time: float = 0.0
+var _hold_next_tick: float = 0.0
+
 var isActive: bool = false
 
 func _ready():
@@ -19,9 +25,9 @@ func _ready():
 		needle.rotation = _force_to_rotation(force)
 		_needle_force = force
 
-func _process(_delta):
+func _process(delta):
 	if isActive:
-		handle_input()
+		handle_input(delta)
 	update_visuals()
 	update_needle()
 
@@ -31,7 +37,7 @@ func activate():
 func deactivate():
 	isActive = false
 
-func handle_input():
+func handle_input(delta: float):
 	if Input.is_physical_key_pressed(KEY_SPACE) and not _space_held:
 		toggle_sleeve()
 		_space_held = true
@@ -41,11 +47,32 @@ func handle_input():
 	if Input.is_action_just_pressed("ui_up"):
 		exit_config()
 
-	if Input.is_action_just_pressed("ui_right"):
-		increase_force()
+	handle_force_hold(delta)
 
-	if Input.is_action_just_pressed("ui_left"):
-		decrease_force()
+func handle_force_hold(delta: float):
+	var dir := 0
+	if Input.is_action_pressed("ui_right"):
+		dir += 1
+	if Input.is_action_pressed("ui_left"):
+		dir -= 1
+
+	if dir == 0 or dir != _hold_dir:
+		_hold_dir = dir
+		_hold_time = 0.0
+		_hold_next_tick = HOLD_REPEAT_DELAY
+		if dir > 0 and Input.is_action_just_pressed("ui_right"):
+			increase_force()
+		elif dir < 0 and Input.is_action_just_pressed("ui_left"):
+			decrease_force()
+		return
+
+	_hold_time += delta
+	while _hold_time >= _hold_next_tick:
+		if _hold_dir > 0:
+			increase_force()
+		else:
+			decrease_force()
+		_hold_next_tick += HOLD_REPEAT_INTERVAL
 
 func toggle_sleeve():
 	var player = GameManager.player
