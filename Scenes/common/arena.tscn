@@ -6,6 +6,27 @@
 [ext_resource type="FontFile" uid="uid://cvvfyj0p4rkid" path="res://Fonts/ArchitectsDaughter-Regular.ttf" id="4_n5r5p"]
 [ext_resource type="Script" uid="uid://dg1gxkv3cpjl1" path="res://scripts/core/clock.gd" id="5_k4mq0"]
 [ext_resource type="AudioStream" uid="uid://xx0pjw5e4x6v" path="res://Sounds/tick_dong.wav" id="6_nbx6o"]
+[ext_resource type="Texture2D" uid="uid://bikw7wqt125li" path="res://Images/Animations/PLAYER-READY.png" id="7_nbu2b"]
+[ext_resource type="Texture2D" uid="uid://bl2jmgf7ex8r8" path="res://Images/Machine.png" id="8_u0so4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0so4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nbu2b")
+}],
+"loop": false,
+"name": &"SLEEVE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_u0so4")
+}],
+"loop": false,
+"name": &"UNSLEEVE",
+"speed": 5.0
+}]
 
 [node name="Arena" type="Node2D" unique_id=1421027996]
 
@@ -36,3 +57,11 @@ text = "00:10"
 
 [node name="Tick" type="AudioStreamPlayer" parent="Clock" unique_id=1231555861]
 stream = ExtResource("6_nbx6o")
+
+[node name="PlayerContainer" type="Node2D" parent="." unique_id=403013954]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainer" unique_id=924299887]
+visible = false
+position = Vector2(482, 268)
+sprite_frames = SubResource("SpriteFrames_u0so4")
+animation = &"SLEEVE"
