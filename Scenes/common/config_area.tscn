@@ -34,8 +34,7 @@ texture = ExtResource("4_3o4ji")
 script = ExtResource("6_4vnhm")
 
 [node name="Needle" type="Sprite2D" parent="PlayerArm/Machine" unique_id=1903461775]
-position = Vector2(206, 155)
-scale = Vector2(0.16, 0.16)
+position = Vector2(182, 299)
 texture = SubResource("CompressedTexture2D_lrojf")
 offset = Vector2(39, -243)
 
