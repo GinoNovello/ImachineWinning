@@ -12,6 +12,7 @@ var _space_held: bool = false
 var _needle_force: int = -1
 var _needle_tween: Tween
 var _in_transition: bool = false
+var _in_config: bool = false
 
 const HOLD_REPEAT_DELAY: float = 0.35
 const HOLD_REPEAT_INTERVAL: float = 0.07
@@ -103,20 +104,52 @@ func exit_config():
 	get_parent().get_parent().get_parent().show_match()
 
 func update_visuals():
-	if _in_transition:
+	if _in_transition or _in_config:
+		print("update_visuals skipped - _in_transition: ", _in_transition, " _in_config: ", _in_config)
+		return
+		
+	# Check if currently playing CONFIG animation - if so, don't change it
+	if sleeve.animation == "CONFIG":
+		print("Currently playing CONFIG, keeping it")
+		_in_config = true
 		return
 		
 	var player = GameManager.player
+	print("update_visuals playing idle - sleeveUp: ", player.isSleeveUp())
 	if player.isSleeveUp():
 		sleeve.play("IDLEMANGAOFF")
 	else:
 		sleeve.play("IDLEMANGAON")
 
 func increase_force():
+	if GameManager.player.can_configure():
+		if sleeve.animation == "CONFIG" or sleeve.animation == "CONFIGTOINCREASEFORCE" or sleeve.animation == "CONFIGTODECREASEFORCE":
+			sleeve.play("CONFIGTOINCREASEFORCE")
+		else:
+			sleeve.play("IDLETOCONFIG")
+			sleeve.animation_finished.connect(_on_config_animation_finished.bind("CONFIG"), CONNECT_ONE_SHOT)
 	GameManager.player.increase_machine_force()
 
 func decrease_force():
+	if GameManager.player.can_configure():
+		if sleeve.animation == "CONFIG" or sleeve.animation == "CONFIGTOINCREASEFORCE" or sleeve.animation == "CONFIGTODECREASEFORCE":
+			sleeve.play("CONFIGTODECREASEFORCE")
+		else:
+			sleeve.play("IDLETOCONFIG")
+			sleeve.animation_finished.connect(_on_config_animation_finished.bind("CONFIG"), CONNECT_ONE_SHOT)
 	GameManager.player.decrease_machine_force()
+
+func _on_config_animation_finished(next_state: String):
+	print("_on_config_animation_finished - setting _in_config = true")
+	_in_transition = false
+	_in_config = true
+	sleeve.play("CONFIG")
+
+func _on_force_animation_finished():
+	print("_on_force_animation_finished - returning to CONFIG")
+	_in_transition = false
+	_in_config = true
+	sleeve.play("CONFIG")
 
 func update_needle():
 	var force = GameManager.player.machine.generateForce()
