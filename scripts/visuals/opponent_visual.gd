@@ -3,6 +3,7 @@ class_name OpponentVisual
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var wtfSprite: Sprite2D = $WTF
 
 var finalPosition: Vector2
 var startOffsetX: float = 400.0
@@ -38,5 +39,26 @@ func playEntranceAnimation():
 func playGameAnimation():
 	sprite.visible = false
 	animatedSprite.visible = true
-	animatedSprite.z_index = 10  # Poner adelante de todo
+	animatedSprite.z_index = 10
 	animatedSprite.play("READY")
+
+func playWinAnimation():
+	sprite.visible = false
+	wtfSprite.visible = false
+	animatedSprite.visible = true
+	animatedSprite.z_index = 10
+	animatedSprite.play("WIN")
+
+func playLoseAnimation():
+	sprite.visible = false
+	wtfSprite.visible = false
+	animatedSprite.visible = true
+	animatedSprite.z_index = 10
+	animatedSprite.play("LOSE")
+
+func playDeathAnimation():
+	sprite.visible = false
+	wtfSprite.visible = false
+	animatedSprite.visible = true
+	animatedSprite.z_index = 10
+	animatedSprite.play("DEATH")

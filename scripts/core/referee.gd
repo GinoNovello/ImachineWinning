@@ -6,6 +6,7 @@ signal force_match
 var player: Player
 var opponent: Opponent
 var clock: Clock
+var opponentVisual: OpponentVisual
 
 var match_started: bool = false
 
@@ -56,11 +57,17 @@ func _on_time_over():
 
 func declareHonestWin(_player: Player, _opponent: Opponent):
 	match_started = false
+	if opponentVisual != null:
+		opponentVisual.playLoseAnimation()
+		await opponentVisual.animatedSprite.animation_finished
 	_opponent.onDefeat()
 	_player.win()
 
 func declareLose(_player: Player, _opponent: Opponent):
 	match_started = false
+	if opponentVisual != null:
+		opponentVisual.playWinAnimation()
+		await opponentVisual.animatedSprite.animation_finished
 	_opponent.onVictory()
 	_player.lose()
 

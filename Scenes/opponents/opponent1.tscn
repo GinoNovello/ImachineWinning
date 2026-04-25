@@ -1,20 +1,434 @@
 [gd_scene format=3 uid="uid://caj4uhqb1qhgs"]
 
+[ext_resource type="Texture2D" uid="uid://cdjr5hsy1hgl6" path="res://Images/Opponent1.png" id="1_cqb0i"]
 [ext_resource type="Script" uid="uid://b28xud47veguw" path="res://scripts/visuals/opponent_visual.gd" id="2_visual"]
-[ext_resource type="Texture2D" uid="uid://dfial7n0s841" path="res://Images/Opponent1_ready.png" id="3_r1ko1"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jqm80"]
-load_path = "res://.godot/imported/Opponent1.png-e4431173b5534645c7264923f9909c06.ctex"
+[ext_resource type="Texture2D" uid="uid://bi2vvk4uoof5w" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0000.png" id="3_ew32m"]
+[ext_resource type="Texture2D" uid="uid://c0vfaeud4kfs4" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0000.png" id="3_tdxvl"]
+[ext_resource type="Texture2D" uid="uid://bonmq6lw5ffa4" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0001.png" id="4_0hprl"]
+[ext_resource type="Texture2D" uid="uid://pd5n074tlqdv" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0001.png" id="4_bqrfq"]
+[ext_resource type="Texture2D" uid="uid://doeofoesdpi5t" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0002.png" id="5_64beb"]
+[ext_resource type="Texture2D" uid="uid://hwlxgp5pwrm0" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0002.png" id="5_if0a4"]
+[ext_resource type="Texture2D" uid="uid://dnw38vo4wjinx" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0003.png" id="6_3nls8"]
+[ext_resource type="Texture2D" uid="uid://32t8cxbsn3cy" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0003.png" id="6_h3hxl"]
+[ext_resource type="Texture2D" uid="uid://lv6m3gmalw6c" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0004.png" id="7_2g65p"]
+[ext_resource type="Texture2D" uid="uid://crg3xoar7ts71" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0004.png" id="7_tllg0"]
+[ext_resource type="Texture2D" uid="uid://4bdgxj3ajp8u" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0005.png" id="8_b42th"]
+[ext_resource type="Texture2D" uid="uid://c5kduwwy7ytnj" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0005.png" id="8_uepq4"]
+[ext_resource type="Texture2D" uid="uid://b2jmhl6kyfqjh" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0006.png" id="9_5kysb"]
+[ext_resource type="Texture2D" uid="uid://cctfwk4sw08j" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0006.png" id="9_qoym0"]
+[ext_resource type="Texture2D" uid="uid://s2mxgfqva7lf" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0007.png" id="10_1o4b0"]
+[ext_resource type="Texture2D" uid="uid://cwwayckvgb5uq" path="res://Images/Animations/Opponent1/Opponent_1-ready/Opponent_1-ready_0007.png" id="10_elnl6"]
+[ext_resource type="Texture2D" uid="uid://bmyrxr6wh78lc" path="res://Images/Opponent_1-CaughtCheater.png" id="11_0hprl"]
+[ext_resource type="Texture2D" uid="uid://tvrh2a1pxei6" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0008.png" id="11_v1kxq"]
+[ext_resource type="Texture2D" uid="uid://dl4wwf0m0afs7" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0009.png" id="12_no0ni"]
+[ext_resource type="Texture2D" uid="uid://csqetv6uj8x41" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0010.png" id="13_pfwls"]
+[ext_resource type="Texture2D" uid="uid://c5ayjkrxj86m5" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0011.png" id="14_uxtiv"]
+[ext_resource type="Texture2D" uid="uid://mhj2yv5oh805" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0012.png" id="15_0epn1"]
+[ext_resource type="Texture2D" uid="uid://c83fanhb56iyy" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0013.png" id="16_tp5k5"]
+[ext_resource type="Texture2D" uid="uid://c4r2ckj6545a5" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0014.png" id="17_2kfw3"]
+[ext_resource type="Texture2D" uid="uid://cs0b2cj67e7w0" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0015.png" id="18_lyvte"]
+[ext_resource type="Texture2D" uid="uid://casbow80xdqt3" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0016.png" id="19_ava6l"]
+[ext_resource type="Texture2D" uid="uid://cl733x43t2d01" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0017.png" id="20_w74b3"]
+[ext_resource type="Texture2D" uid="uid://docwmw17kyoy5" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0018.png" id="21_5dnad"]
+[ext_resource type="Texture2D" uid="uid://dtis5xgmj6yep" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0019.png" id="22_cx70v"]
+[ext_resource type="Texture2D" uid="uid://b275miacqbb0b" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0020.png" id="23_n8iqe"]
+[ext_resource type="Texture2D" uid="uid://b72kkfmgxlanx" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0021.png" id="24_ii3bo"]
+[ext_resource type="Texture2D" uid="uid://2iv2x184b8tj" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0022.png" id="25_a67jx"]
+[ext_resource type="Texture2D" uid="uid://bpqrnrxpx2q65" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0023.png" id="26_7p07h"]
+[ext_resource type="Texture2D" uid="uid://lmsmlwld3w5w" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0024.png" id="27_ekbds"]
+[ext_resource type="Texture2D" uid="uid://chl74plf31kj1" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0025.png" id="28_i8ala"]
+[ext_resource type="Texture2D" uid="uid://bn7ddt42kyr46" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0026.png" id="29_u3e0w"]
+[ext_resource type="Texture2D" uid="uid://bodj3uolaq5c5" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0027.png" id="30_s7bjb"]
+[ext_resource type="Texture2D" uid="uid://b5x57ufgbvvg1" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0028.png" id="31_x7v6d"]
+[ext_resource type="Texture2D" uid="uid://d358hqqj2mdfm" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0029.png" id="32_r7ytj"]
+[ext_resource type="Texture2D" uid="uid://dy6qiuvdli8my" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0030.png" id="33_u0dc6"]
+[ext_resource type="Texture2D" uid="uid://bekm8os36owx5" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0031.png" id="34_iadff"]
+[ext_resource type="Texture2D" uid="uid://c6xodt16ji04d" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0032.png" id="35_fasd8"]
+[ext_resource type="Texture2D" uid="uid://do3d6sruvgd0m" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0033.png" id="36_y507g"]
+[ext_resource type="Texture2D" uid="uid://tfeda43p1hrb" path="res://Images/Animations/Opponent1/Opponent_1-death/Opponent_1-death_0034.png" id="37_yrgxh"]
+[ext_resource type="Texture2D" uid="uid://cuiloc2ca5jcb" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0000.png" id="38_r7ytj"]
+[ext_resource type="Texture2D" uid="uid://dtax0sh4v1fld" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0001.png" id="39_u0dc6"]
+[ext_resource type="Texture2D" uid="uid://bmxtywggb8bur" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0002.png" id="40_iadff"]
+[ext_resource type="Texture2D" uid="uid://cevkx6bjobrol" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0003.png" id="41_fasd8"]
+[ext_resource type="Texture2D" uid="uid://bxlbfbmycki0f" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0004.png" id="42_y507g"]
+[ext_resource type="Texture2D" uid="uid://xqwsvjngsdqo" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0005.png" id="43_yrgxh"]
+[ext_resource type="Texture2D" uid="uid://cu5b1kfbd3dlv" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0006.png" id="44_c3mjb"]
+[ext_resource type="Texture2D" uid="uid://deot88a4a7mc0" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0007.png" id="45_0qqro"]
+[ext_resource type="Texture2D" uid="uid://fftm1uwmhcq0" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0008.png" id="46_8jvfp"]
+[ext_resource type="Texture2D" uid="uid://dvkjja1udufja" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0009.png" id="47_gw17k"]
+[ext_resource type="Texture2D" uid="uid://dm5b3yhusux7n" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0010.png" id="48_8041q"]
+[ext_resource type="Texture2D" uid="uid://bfl5e3fg40i2u" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0011.png" id="49_ysiob"]
+[ext_resource type="Texture2D" uid="uid://b6sqis4nv2gl4" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0012.png" id="50_mb1qc"]
+[ext_resource type="Texture2D" uid="uid://473p3u43uly0" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0013.png" id="51_480lj"]
+[ext_resource type="Texture2D" uid="uid://cvrydpvbwr8m1" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0014.png" id="52_sjg7o"]
+[ext_resource type="Texture2D" uid="uid://bwogj1qni8ypf" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0015.png" id="53_uu2xy"]
+[ext_resource type="Texture2D" uid="uid://d4mph8i4m2jy8" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0016.png" id="54_3cv10"]
+[ext_resource type="Texture2D" uid="uid://bwnnepb5411c0" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0017.png" id="55_okrev"]
+[ext_resource type="Texture2D" uid="uid://cvr5n4gxrqnjp" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0018.png" id="56_k8niv"]
+[ext_resource type="Texture2D" uid="uid://bsint7s4hwyxk" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0019.png" id="57_q6yep"]
+[ext_resource type="Texture2D" uid="uid://dlrsqt7lutt03" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0020.png" id="58_35eli"]
+[ext_resource type="Texture2D" uid="uid://dqj22xggknixh" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0021.png" id="59_0bvll"]
+[ext_resource type="Texture2D" uid="uid://dd55aw1uealr1" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0022.png" id="60_12jl2"]
+[ext_resource type="Texture2D" uid="uid://bu63tao0mmvqa" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0023.png" id="61_1fuw5"]
+[ext_resource type="Texture2D" uid="uid://noqdvq6rirvj" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0024.png" id="62_kakmp"]
+[ext_resource type="Texture2D" uid="uid://do7y6e8gusjkr" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0025.png" id="63_1axew"]
+[ext_resource type="Texture2D" uid="uid://71vh5a7ii72p" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0026.png" id="64_g2dd7"]
+[ext_resource type="Texture2D" uid="uid://ddno0biuhuoi1" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0027.png" id="65_jt8ng"]
+[ext_resource type="Texture2D" uid="uid://bse2hltjwdpq3" path="res://Images/Animations/Opponent1/Opponent_1-lose/Opponent_1-lose_0028.png" id="66_bww5b"]
+[ext_resource type="Texture2D" uid="uid://4wboonw0bjjs" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0000.png" id="75_4xrva"]
+[ext_resource type="Texture2D" uid="uid://c7yv4hat0injd" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0001.png" id="76_vvn22"]
+[ext_resource type="Texture2D" uid="uid://cyi6nc4ppclmn" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0002.png" id="77_pfk56"]
+[ext_resource type="Texture2D" uid="uid://cq1xglh3nm47d" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0003.png" id="78_0didu"]
+[ext_resource type="Texture2D" uid="uid://brfpnqipk4lft" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0004.png" id="79_0g24s"]
+[ext_resource type="Texture2D" uid="uid://cqrgffpold85l" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0005.png" id="80_8svev"]
+[ext_resource type="Texture2D" uid="uid://cq0akv6jsp81p" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0006.png" id="81_c0pwp"]
+[ext_resource type="Texture2D" uid="uid://omb2bqic1p7y" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0007.png" id="82_kcnee"]
+[ext_resource type="Texture2D" uid="uid://cuul6lwo6a01v" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0008.png" id="83_2r52k"]
+[ext_resource type="Texture2D" uid="uid://cfa0ouiv3llux" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0009.png" id="84_hoyox"]
+[ext_resource type="Texture2D" uid="uid://i8axmpiybiff" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0010.png" id="85_gl3mj"]
+[ext_resource type="Texture2D" uid="uid://btfspe64ou1ay" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0011.png" id="86_er3so"]
+[ext_resource type="Texture2D" uid="uid://bmxb1c58srtqh" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0012.png" id="87_ks5px"]
+[ext_resource type="Texture2D" uid="uid://kcjte2ieyxgt" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0013.png" id="88_6bj3l"]
+[ext_resource type="Texture2D" uid="uid://ba8td7ul0yqa1" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0014.png" id="89_jsn42"]
+[ext_resource type="Texture2D" uid="uid://54ltlwtneb67" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0015.png" id="90_irt77"]
+[ext_resource type="Texture2D" uid="uid://b4k7xuxgg1vgg" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0016.png" id="91_udtui"]
+[ext_resource type="Texture2D" uid="uid://h61u7fm4syjx" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0017.png" id="92_kvq5s"]
+[ext_resource type="Texture2D" uid="uid://ypcqfsnrk5gj" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0018.png" id="93_qrllf"]
+[ext_resource type="Texture2D" uid="uid://cfu2lkt8avatt" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0019.png" id="94_1d24g"]
+[ext_resource type="Texture2D" uid="uid://170h4f16rmen" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0020.png" id="95_lowxb"]
+[ext_resource type="Texture2D" uid="uid://cht3hehy1rf1l" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0021.png" id="96_fvi4v"]
+[ext_resource type="Texture2D" uid="uid://bqxhjkn7n5khn" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0022.png" id="97_vbu0i"]
+[ext_resource type="Texture2D" uid="uid://qswausnpy3sm" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0023.png" id="98_puoxs"]
+[ext_resource type="Texture2D" uid="uid://dcqtwo8aaulfi" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0024.png" id="99_8bm8l"]
+[ext_resource type="Texture2D" uid="uid://b1rbgkokd3wjl" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0025.png" id="100_smm7c"]
+[ext_resource type="Texture2D" uid="uid://ejtebeirq0ml" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0026.png" id="101_mssq6"]
+[ext_resource type="Texture2D" uid="uid://dnrxojixktk5f" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0027.png" id="102_n1112"]
+[ext_resource type="Texture2D" uid="uid://naneiahb3ti6" path="res://Images/Animations/Opponent1/Opponent_1-win/Opponent_1-win_0028.png" id="103_bdbn6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_87lha"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_r1ko1")
+"texture": ExtResource("3_tdxvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bqrfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_if0a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h3hxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2g65p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b42th")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5kysb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1o4b0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v1kxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_no0ni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pfwls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uxtiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0epn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_tp5k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2kfw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lyvte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ava6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_w74b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5dnad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_cx70v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_n8iqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ii3bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_a67jx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7p07h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ekbds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_i8ala")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_u3e0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_s7bjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_x7v6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_r7ytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_u0dc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_iadff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_fasd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_y507g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yrgxh")
 }],
-"loop": true,
+"loop": false,
+"name": &"DEATH",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_r7ytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_u0dc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_iadff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_fasd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_y507g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_yrgxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_c3mjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_0qqro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_8jvfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_gw17k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_8041q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ysiob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_mb1qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_480lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_sjg7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_uu2xy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_3cv10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_okrev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_k8niv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_q6yep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_35eli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_0bvll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_12jl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_1fuw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_kakmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_1axew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_g2dd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_jt8ng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_bww5b")
+}],
+"loop": false,
+"name": &"LOSE",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ew32m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0hprl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_64beb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3nls8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tllg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uepq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qoym0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_elnl6")
+}],
+"loop": false,
 "name": &"READY",
-"speed": 5.0
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("75_4xrva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_vvn22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_pfk56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_0didu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_0g24s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_8svev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_c0pwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_kcnee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_2r52k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_hoyox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_gl3mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_er3so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_ks5px")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_6bj3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_jsn42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_irt77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_udtui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_kvq5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_qrllf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_1d24g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_lowxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_fvi4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_vbu0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_puoxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_8bm8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_smm7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_mssq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_n1112")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_bdbn6")
+}],
+"loop": false,
+"name": &"WIN",
+"speed": 24.0
 }]
 
 [node name="Opponent1" type="Node2D" unique_id=315027034]
@@ -22,10 +436,17 @@ script = ExtResource("2_visual")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185436456]
 position = Vector2(480, 270)
-texture = SubResource("CompressedTexture2D_jqm80")
+texture = ExtResource("1_cqb0i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=987654321]
 visible = false
 position = Vector2(480, 270)
 sprite_frames = SubResource("SpriteFrames_87lha")
-animation = &"READY"
+animation = &"LOSE"
+frame = 28
+frame_progress = 1.0
+
+[node name="WTF" type="Sprite2D" parent="." unique_id=1386958845]
+visible = false
+position = Vector2(480, 269)
+texture = ExtResource("11_0hprl")

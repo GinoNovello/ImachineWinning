@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bj0piam7gpcxh" path="res://Images/Background.png" id="1_sea1x"]
 [ext_resource type="Texture2D" uid="uid://b28unl433nmp0" path="res://Images/Table.png" id="2_s1ktn"]
-[ext_resource type="Texture2D" uid="uid://bv17rwxximiw1" path="res://Images/Clock.png" id="3_s1ktn"]
+[ext_resource type="Texture2D" uid="uid://bs2j2lkxjdvlv" path="res://Images/Clock.png" id="3_s1ktn"]
 [ext_resource type="FontFile" uid="uid://cvvfyj0p4rkid" path="res://Fonts/ArchitectsDaughter-Regular.ttf" id="4_n5r5p"]
 [ext_resource type="Script" uid="uid://dg1gxkv3cpjl1" path="res://scripts/core/clock.gd" id="5_k4mq0"]
 [ext_resource type="AudioStream" uid="uid://xx0pjw5e4x6v" path="res://Sounds/tick_dong.wav" id="6_nbx6o"]
@@ -186,35 +186,35 @@ animations = [{
 position = Vector2(480, 270)
 texture = ExtResource("1_sea1x")
 
+[node name="Clock" type="Sprite2D" parent="." unique_id=1731413071]
+position = Vector2(484, 270.5)
+scale = Vector2(0.9937499, 1.0092592)
+texture = ExtResource("3_s1ktn")
+script = ExtResource("5_k4mq0")
+
+[node name="Label" type="Label" parent="Clock" unique_id=504805153]
+offset_left = 90.566025
+offset_top = -190.73392
+offset_right = 230.56602
+offset_bottom = -117.73392
+theme_override_fonts/font = ExtResource("4_n5r5p")
+theme_override_font_sizes/font_size = 52
+text = "00:06"
+
+[node name="Tick" type="AudioStreamPlayer" parent="Clock" unique_id=1231555861]
+stream = ExtResource("6_nbx6o")
+
 [node name="OpponentContainer" type="Node2D" parent="." unique_id=980667885]
 
 [node name="Table" type="Sprite2D" parent="." unique_id=412420291]
 position = Vector2(480, 270)
 texture = ExtResource("2_s1ktn")
 
-[node name="Clock" type="Sprite2D" parent="." unique_id=1731413071]
-position = Vector2(171, 115)
-scale = Vector2(0.20515388, 0.22241211)
-texture = ExtResource("3_s1ktn")
-script = ExtResource("5_k4mq0")
-
-[node name="Label" type="Label" parent="Clock" unique_id=504805153]
-offset_left = -316.83533
-offset_top = -80.93082
-offset_right = 357.16467
-offset_bottom = 276.06918
-theme_override_fonts/font = ExtResource("4_n5r5p")
-theme_override_font_sizes/font_size = 244
-text = "00:10"
-
-[node name="Tick" type="AudioStreamPlayer" parent="Clock" unique_id=1231555861]
-stream = ExtResource("6_nbx6o")
-
 [node name="PlayerContainer" type="Node2D" parent="." unique_id=403013954]
+z_index = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainer" unique_id=924299887]
 visible = false
-position = Vector2(479.5, 270.5)
-scale = Vector2(1.4241072, 1.2340909)
+position = Vector2(490, 324)
 sprite_frames = SubResource("SpriteFrames_u0so4")
-animation = &"SLEEVE"
+animation = &"UNSLEEVE"
