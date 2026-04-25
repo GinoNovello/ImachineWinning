@@ -83,8 +83,12 @@ func toggle_sleeve():
 	_in_transition = true
 
 	if player.isSleeveUp():
-		sleeve.play("IDLEMANGAOFFTOROLLSLEEVEON")
-		sleeve.animation_finished.connect(_on_animation_finished.bind(true), CONNECT_ONE_SHOT)
+		if sleeve.animation == "CONFIG" or sleeve.animation == "CONFIGTOINCREASEFORCE" or sleeve.animation == "CONFIGTODECREASEFORCE":
+			sleeve.play("CONFIGTOROLLSLEEVEON")
+			sleeve.animation_finished.connect(_on_config_to_sleeve_finished, CONNECT_ONE_SHOT)
+		else:
+			sleeve.play("IDLEMANGAOFFTOROLLSLEEVEON")
+			sleeve.animation_finished.connect(_on_animation_finished.bind(true), CONNECT_ONE_SHOT)
 	else:
 		sleeve.play("IDLEMANGAONTOROLLSLEEVEOFF")
 		sleeve.animation_finished.connect(_on_animation_finished.bind(false), CONNECT_ONE_SHOT)
@@ -139,7 +143,7 @@ func decrease_force():
 			sleeve.animation_finished.connect(_on_config_animation_finished.bind("CONFIG"), CONNECT_ONE_SHOT)
 	GameManager.player.decrease_machine_force()
 
-func _on_config_animation_finished(next_state: String):
+func _on_config_animation_finished(_next_state: String):
 	print("_on_config_animation_finished - setting _in_config = true")
 	_in_transition = false
 	_in_config = true
@@ -150,6 +154,14 @@ func _on_force_animation_finished():
 	_in_transition = false
 	_in_config = true
 	sleeve.play("CONFIG")
+
+func _on_config_to_sleeve_finished():
+	print("_on_config_to_sleeve_finished - rolling down sleeve")
+	var player = GameManager.player
+	player.rollDownSleeve()
+	_in_config = false
+	_in_transition = false
+	update_visuals()
 
 func update_needle():
 	var force = GameManager.player.machine.generateForce()
