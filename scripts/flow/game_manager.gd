@@ -33,11 +33,15 @@ var opponentScenes = [
 var current_opponent_index := 0
 
 func start_new_game():
+	current_opponent_index = 0
 	player = Player.new()
 	opponent = create_opponent()
 	referee = Referee.new()
 
 	get_tree().change_scene_to_file("res://Scenes/game/game_scene.tscn")
+
+func go_to_main_menu():
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/MainMenu.tscn")
 
 func start_match():
 	get_tree().reload_current_scene()
