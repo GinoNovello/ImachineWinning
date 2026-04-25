@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b28unl433nmp0" path="res://Images/Table.png" id="2_s1ktn"]
 [ext_resource type="Texture2D" uid="uid://bs2j2lkxjdvlv" path="res://Images/Clock.png" id="3_s1ktn"]
 [ext_resource type="FontFile" uid="uid://cvvfyj0p4rkid" path="res://Fonts/ArchitectsDaughter-Regular.ttf" id="4_n5r5p"]
-[ext_resource type="Script" uid="uid://dg1gxkv3cpjl1" path="res://scripts/core/clock.gd" id="5_k4mq0"]
+[ext_resource type="Script" uid="uid://3bkve3jh033r" path="res://scripts/core/clock.gd" id="5_k4mq0"]
 [ext_resource type="AudioStream" uid="uid://xx0pjw5e4x6v" path="res://Sounds/tick_dong.wav" id="6_nbx6o"]
 [ext_resource type="Texture2D" uid="uid://dnti3vsvg41jq" path="res://Images/Animations/RightHandArena-SleeveOn_/RightHandArena-SleeveOn_0000.png" id="7_nq4r8"]
 [ext_resource type="Texture2D" uid="uid://dtaoxualyjgkq" path="res://Images/Animations/RightHandArena-SleeveOff_/RightHandArena-SleeveOff_0000.png" id="7_wiodj"]
@@ -215,6 +215,6 @@ z_index = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainer" unique_id=924299887]
 visible = false
-position = Vector2(490, 324)
+position = Vector2(624, 319)
 sprite_frames = SubResource("SpriteFrames_u0so4")
-animation = &"UNSLEEVE"
+animation = &"SLEEVE"
