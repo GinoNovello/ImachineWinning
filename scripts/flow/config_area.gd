@@ -5,8 +5,8 @@ extends Node2D
 @onready var needle: Sprite2D = $PlayerArm/Machine/Needle
 @onready var tick_sound: AudioStreamPlayer = $PlayerArm/Machine/Needle/TickSound
 
-@export var needle_min_rotation: float = -7 * PI / 12
-@export var needle_max_rotation: float = PI / 2
+@export var needle_min_rotation: float = -5 * PI / 12
+@export var needle_max_rotation: float = 7 * PI / 12
 
 var _space_held: bool = false
 var _needle_force: int = -1
