@@ -20,6 +20,8 @@ func _ready():
 
 	_loadOpponentVisual()
 	await _playOpponentEntranceAnimation()
+
+	referee.opponentVisual = opponentVisual
 	referee.startGame(player, opponent, clock)
 
 	if opponentVisual != null:
@@ -69,12 +71,22 @@ func execute_match():
 	
 	# Play animation and execute result based on sleeve state
 	if player.isSleeveUp():
+		if opponentVisual != null and opponentVisual.has_node("WTF"):
+			opponentVisual.get_node("AnimatedSprite2D").visible = false
+			var wtfSprite = opponentVisual.get_node("WTF")
+			wtfSprite.visible = true
+			wtfSprite.z_index = 10
 		playerSprite.play("UNSLEEVE")
 		await playerSprite.animation_finished
-		referee.declareCheating(player, opponent)
+		await get_tree().create_timer(1.0).timeout
+		playerSprite.visible = false
+		# El referee detectará la trampa en checkImmediateConditions
+		referee.startMatch(player, opponent)
 	else:
 		playerSprite.play("SLEEVE")
 		await playerSprite.animation_finished
+		playerSprite.visible = false
+		# Jugar el match normalmente
 		player.playAgainst(opponent, referee)
 
 func show_config():

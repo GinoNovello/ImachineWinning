@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b28xud47veguw" path="res://scripts/visuals/opponent_visual.gd" id="1_visual"]
 [ext_resource type="Texture2D" uid="uid://44dou7raetg7" path="res://Images/Opponent1.png" id="2_texture"]
 [ext_resource type="Texture2D" uid="uid://dfial7n0s841" path="res://Images/Opponent1_ready.png" id="3_r1ko1"]
+[ext_resource type="Texture2D" uid="uid://bi2vvk4uoof5w" path="res://Images/Opponent_1-CaughtCheater.png" id="4_wtf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_87lha"]
 animations = [{
@@ -29,3 +30,8 @@ visible = false
 position = Vector2(480, 270)
 sprite_frames = SubResource("SpriteFrames_87lha")
 animation = &"READY"
+
+[node name="WTF" type="Sprite2D" parent="." unique_id=1386958851]
+visible = false
+position = Vector2(480, 269)
+texture = ExtResource("4_wtf")

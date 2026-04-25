@@ -6,6 +6,7 @@ signal force_match
 var player: Player
 var opponent: Opponent
 var clock: Clock
+var opponentVisual: OpponentVisual
 
 var match_started: bool = false
 
@@ -37,7 +38,7 @@ func checkImmediateConditions():
 	print("[Referee] checkImmediateConditions - sleeveUp: ", player.isSleeveUp())
 	if player.isSleeveUp():
 		print("[Referee] CHEATING detected - sleeve is up!")
-		declareCheating(player, opponent)
+		declareCheatingForSleeveUp(player, opponent)
 
 func update(delta):
 	if not match_started:
@@ -56,14 +57,31 @@ func _on_time_over():
 
 func declareHonestWin(_player: Player, _opponent: Opponent):
 	match_started = false
+	if opponentVisual != null:
+		opponentVisual.playLoseAnimation()
+		await opponentVisual.animatedSprite.animation_finished
+		await opponentVisual.get_tree().create_timer(1.0).timeout
 	_opponent.onDefeat()
 	_player.win()
 
 func declareLose(_player: Player, _opponent: Opponent):
 	match_started = false
+	if opponentVisual != null:
+		opponentVisual.playWinAnimation()
+		await opponentVisual.animatedSprite.animation_finished
+		await opponentVisual.get_tree().create_timer(1.0).timeout
 	_opponent.onVictory()
 	_player.lose()
 
 func declareCheating(_player: Player, _opponent: Opponent):
+	match_started = false
+	if opponentVisual != null:
+		opponentVisual.playDeathAnimation()
+		await opponentVisual.animatedSprite.animation_finished
+		await opponentVisual.get_tree().create_timer(1.0).timeout
+	_opponent.onDefeat()
+	_player.caughtCheating()
+
+func declareCheatingForSleeveUp(_player: Player, _opponent: Opponent):
 	match_started = false
 	_player.caughtCheating()
