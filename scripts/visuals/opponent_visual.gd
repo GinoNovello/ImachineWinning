@@ -1,6 +1,8 @@
 extends Node2D
 class_name OpponentVisual
 
+const EXPLOSION_SOUND := preload("res://Sounds/explosion.wav")
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var wtfSprite: Sprite2D = $WTF
@@ -62,3 +64,12 @@ func playDeathAnimation():
 	animatedSprite.visible = true
 	animatedSprite.z_index = 10
 	animatedSprite.play("DEATH")
+	_playExplosionSound()
+
+func _playExplosionSound():
+	await get_tree().create_timer(0.85).timeout
+	var sfx := AudioStreamPlayer.new()
+	sfx.stream = EXPLOSION_SOUND
+	add_child(sfx)
+	sfx.play()
+	sfx.finished.connect(sfx.queue_free)
