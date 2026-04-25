@@ -3,6 +3,7 @@ extends Node2D
 @onready var screens = $UI/Screens
 @onready var opponentContainer = $UI/Screens/Arena/OpponentContainer
 @onready var configArea = $UI/Screens/ConfigArea
+@onready var clock: Clock = $UI/Screens/Arena/Clock
 
 var inArena: bool = true
 
@@ -13,14 +14,16 @@ func _ready():
 	var opponent = GameManager.opponent
 	var referee = GameManager.referee
 
+	referee.force_match.connect(_on_force_match)
+
 	_loadOpponentVisual()
-	_playOpponentEntranceAnimation()
-	referee.startMatch(player, opponent)
+	await _playOpponentEntranceAnimation()
+	referee.startGame(player, opponent, clock)
 
 func _loadOpponentVisual():
 	for child in opponentContainer.get_children():
 		child.free()
-	
+
 	var opponentScene = GameManager.get_current_opponent_scene()
 	var opponentInstance = opponentScene.instantiate()
 	opponentContainer.add_child(opponentInstance)
@@ -28,11 +31,17 @@ func _loadOpponentVisual():
 func _playOpponentEntranceAnimation():
 	if opponentContainer.get_child_count() == 0:
 		return
-	var opponentVisual = opponentContainer.get_child(0) as OpponentVisual
-	if opponentVisual:
-		opponentVisual.playEntranceAnimation()
 
-func _process(_delta):
+	var opponentVisual = opponentContainer.get_child(0) as OpponentVisual
+	if opponentVisual == null:
+		return
+
+	var tween = opponentVisual.playEntranceAnimation()
+	await tween.finished
+
+func _process(delta):
+	GameManager.referee.update(delta)
+
 	if Input.is_action_just_pressed("ui_down"):
 		show_config()
 
@@ -69,3 +78,8 @@ func start_match():
 	var referee = GameManager.referee
 
 	referee.startMatch(player, opponent)
+
+func _on_force_match():
+	if not inArena:
+		show_match()
+	execute_match()

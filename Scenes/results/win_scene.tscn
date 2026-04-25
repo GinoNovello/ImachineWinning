@@ -5,15 +5,14 @@
 [node name="LoseScene" type="Node2D" unique_id=1929948916]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732400748]
-position = Vector2(578.25, 324)
-scale = Vector2(0.9078431, 0.9162011)
+position = Vector2(480, 270)
 texture = ExtResource("1_fmpr8")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=527169767]
-offset_left = 658.0
-offset_top = 48.0
-offset_right = 1127.0
-offset_bottom = 448.0
+offset_left = 431.0
+offset_top = 65.0
+offset_right = 900.0
+offset_bottom = 465.0
 color = Color(0.015686275, 0.015686275, 0.015686275, 1)
 
 [node name="Label" type="Label" parent="ColorRect" unique_id=1440450864]
