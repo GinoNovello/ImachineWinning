@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var sleeve = $PlayerArm/Sleeve
+@onready var sleeve = $PlayerArm/LeftHand
 @onready var machine = $PlayerArm/Machine
 @onready var needle: Sprite2D = $PlayerArm/Machine/Needle
 @onready var tick_sound: AudioStreamPlayer = $PlayerArm/Machine/Needle/TickSound
@@ -11,6 +11,7 @@ extends Node2D
 var _space_held: bool = false
 var _needle_force: int = -1
 var _needle_tween: Tween
+var _in_transition: bool = false
 
 const HOLD_REPEAT_DELAY: float = 0.35
 const HOLD_REPEAT_INTERVAL: float = 0.07
@@ -77,20 +78,39 @@ func handle_force_hold(delta: float):
 
 func toggle_sleeve():
 	var player = GameManager.player
+	
+	_in_transition = true
 
 	if player.isSleeveUp():
+		sleeve.play("IDLEMANGAOFFTOROLLSLEEVEON")
+		sleeve.animation_finished.connect(_on_animation_finished.bind(true), CONNECT_ONE_SHOT)
+	else:
+		sleeve.play("IDLEMANGAONTOROLLSLEEVEOFF")
+		sleeve.animation_finished.connect(_on_animation_finished.bind(false), CONNECT_ONE_SHOT)
+
+func _on_animation_finished(was_sleeve_up: bool):
+	var player = GameManager.player
+	
+	if was_sleeve_up:
 		player.rollDownSleeve()
 	else:
 		player.rollUpSleeve()
+	
+	_in_transition = false
+	update_visuals()
 
 func exit_config():
 	get_parent().get_parent().get_parent().show_match()
 
 func update_visuals():
+	if _in_transition:
+		return
+		
 	var player = GameManager.player
-
-	sleeve.visible = not player.isSleeveUp()
-	machine.visible = player.isSleeveUp()
+	if player.isSleeveUp():
+		sleeve.play("IDLEMANGAOFF")
+	else:
+		sleeve.play("IDLEMANGAON")
 
 func increase_force():
 	GameManager.player.increase_machine_force()

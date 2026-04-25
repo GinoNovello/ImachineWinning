@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://cbnpa7vs7ii3e"]
 
 [ext_resource type="Texture2D" uid="uid://be1yrcwqrspyg" path="res://Images/ConfigBackground.png" id="1_tk2o4"]
-[ext_resource type="Script" uid="uid://dlsrt3k6g6c3m" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
+[ext_resource type="Script" uid="uid://in8momsxhoyk" path="res://scripts/flow/config_area.gd" id="1_tm3he"]
 [ext_resource type="Texture2D" uid="uid://bxcplrjgn4trv" path="res://Images/ConfigTable.png" id="2_nmm7f"]
-[ext_resource type="Texture2D" uid="uid://cfbrthj7r62gf" path="res://Images/Sleeve.png" id="3_bf0jg"]
-[ext_resource type="Texture2D" uid="uid://bqp6dxpfb4gt" path="res://Images/Machine.png" id="4_3o4ji"]
-[ext_resource type="Script" uid="uid://b3mi1jksvban1" path="res://scripts/core/machine.gd" id="6_4vnhm"]
+[ext_resource type="Texture2D" uid="uid://dkq3y267npkkw" path="res://Images/Machine.png" id="4_3o4ji"]
+[ext_resource type="Script" uid="uid://cmx7o55m51lth" path="res://scripts/core/machine.gd" id="6_4vnhm"]
 [ext_resource type="AudioStream" uid="uid://b6asx4pd1pxfu" path="res://Sounds/switch.wav" id="7_switch"]
 [ext_resource type="Texture2D" uid="uid://c2b0gtexvdq3x" path="res://Images/Animations/ConfigArea/Config.png" id="8_3ifpu"]
 [ext_resource type="Texture2D" uid="uid://bss6igwqrr07g" path="res://Images/Animations/ConfigArea/ConfigToDecreaseForce/ConfigToDecreaseForce_0000.png" id="9_o624c"]
@@ -350,11 +349,6 @@ texture = ExtResource("2_nmm7f")
 
 [node name="PlayerArm" type="Node2D" parent="." unique_id=1602004681]
 
-[node name="Sleeve" type="Sprite2D" parent="PlayerArm" unique_id=449974510]
-visible = false
-position = Vector2(480, 270)
-texture = ExtResource("3_bf0jg")
-
 [node name="Machine" type="Sprite2D" parent="PlayerArm" unique_id=1144025245]
 position = Vector2(480, 270)
 texture = ExtResource("4_3o4ji")
@@ -372,6 +366,4 @@ max_polyphony = 16
 [node name="LeftHand" type="AnimatedSprite2D" parent="PlayerArm" unique_id=1701040730]
 position = Vector2(480, 367)
 sprite_frames = SubResource("SpriteFrames_ki0l6")
-animation = &"IDLEMANGAONTOROLLSLEEVEOFF"
-frame = 19
-frame_progress = 1.0
+animation = &"IDLEMANGAOFFTOROLLSLEEVEON"
