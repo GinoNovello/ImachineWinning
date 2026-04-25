@@ -9,6 +9,9 @@ var clock: Clock
 
 var match_started: bool = false
 
+func isJudging() -> bool:
+	return match_started
+
 func _init():
 	pass
 
