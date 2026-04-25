@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bxcplrjgn4trv" path="res://Images/ConfigTable.png" id="2_nmm7f"]
 [ext_resource type="Texture2D" uid="uid://cfbrthj7r62gf" path="res://Images/Sleeve.png" id="3_bf0jg"]
 [ext_resource type="Texture2D" uid="uid://bl2jmgf7ex8r8" path="res://Images/Machine.png" id="4_3o4ji"]
-[ext_resource type="Script" path="res://scripts/core/machine.gd" id="6_4vnhm"]
+[ext_resource type="Texture2D" uid="uid://bsov7qdcclntu" path="res://Images/needle.png" id="5_needle"]
+[ext_resource type="Script" uid="uid://b3mi1jksvban1" path="res://scripts/core/machine.gd" id="6_4vnhm"]
 
 [node name="ConfigArea" type="Node2D" unique_id=136853237]
 script = ExtResource("1_tm3he")
@@ -25,15 +26,12 @@ position = Vector2(480, 270)
 texture = ExtResource("3_bf0jg")
 
 [node name="Machine" type="Sprite2D" parent="PlayerArm" unique_id=1144025245]
-visible = false
 position = Vector2(480, 270)
 texture = ExtResource("4_3o4ji")
 script = ExtResource("6_4vnhm")
 
-[node name="ForceLabel" type="Label" parent="." unique_id=2008066103]
-offset_left = 588.0
-offset_top = 3.0
-offset_right = 1112.0
-offset_bottom = 139.0
-theme_override_font_sizes/font_size = 96
-text = "Force: 0"
+[node name="Needle" type="Sprite2D" parent="PlayerArm/Machine" unique_id=1903461775]
+position = Vector2(196, 136)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("5_needle")
+offset = Vector2(39, -243)

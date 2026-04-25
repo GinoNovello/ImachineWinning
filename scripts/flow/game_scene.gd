@@ -54,7 +54,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		show_match()
 
-	if Input.is_physical_key_pressed(KEY_ENTER) and Input.is_action_just_pressed("ui_accept") and inArena:
+	if Input.is_physical_key_pressed(KEY_ENTER) and Input.is_action_just_pressed("ui_accept") and inArena and GameManager.referee.match_started:
 		execute_match()
 
 func execute_match():

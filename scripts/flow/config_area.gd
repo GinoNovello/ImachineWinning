@@ -2,17 +2,28 @@ extends Node2D
 
 @onready var sleeve = $PlayerArm/Sleeve
 @onready var machine = $PlayerArm/Machine
-@onready var force_label = $ForceLabel
+@onready var needle: Sprite2D = $PlayerArm/Machine/Needle
+
+@export var needle_min_rotation: float = -7 * PI / 12
+@export var needle_max_rotation: float = PI / 2
 
 var _space_held: bool = false
+var _needle_force: int = -1
+var _needle_tween: Tween
 
 var isActive: bool = false
+
+func _ready():
+	if GameManager.player:
+		var force = GameManager.player.machine.generateForce()
+		needle.rotation = _force_to_rotation(force)
+		_needle_force = force
 
 func _process(_delta):
 	if isActive:
 		handle_input()
 	update_visuals()
-	update_force_label()
+	update_needle()
 
 func activate():
 	isActive = true
@@ -59,6 +70,18 @@ func increase_force():
 func decrease_force():
 	GameManager.player.decrease_machine_force()
 
-func update_force_label():
-	var player = GameManager.player
-	force_label.text = str(player.machine.generateForce())
+func update_needle():
+	var force = GameManager.player.machine.generateForce()
+	if force == _needle_force:
+		return
+	_needle_force = force
+
+	if _needle_tween:
+		_needle_tween.kill()
+	_needle_tween = create_tween()
+	_needle_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_needle_tween.tween_property(needle, "rotation", _force_to_rotation(force), 0.15)
+
+func _force_to_rotation(force: int) -> float:
+	var t = float(force) / float(Machine.MAX_FORCE)
+	return lerp(needle_min_rotation, needle_max_rotation, t)
