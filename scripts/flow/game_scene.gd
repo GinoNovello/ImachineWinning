@@ -5,6 +5,9 @@ extends Node2D
 @onready var configArea = $UI/Screens/ConfigArea
 @onready var clock: Clock = $UI/Screens/Arena/Clock
 @onready var playerSprite: AnimatedSprite2D = $UI/Screens/Arena/PlayerContainer/AnimatedSprite2D
+@onready var roundWinOverlay: CanvasLayer = $RoundWinOverlay
+@onready var roundWinTitle: Label = $RoundWinOverlay/Title
+@onready var roundWinSubtitle: Label = $RoundWinOverlay/Subtitle
 
 var inArena: bool = true
 var opponentVisual: OpponentVisual
@@ -17,6 +20,10 @@ func _ready():
 	var referee = GameManager.referee
 
 	referee.force_match.connect(_on_force_match)
+	if not GameManager.round_won.is_connected(_on_round_won):
+		GameManager.round_won.connect(_on_round_won)
+
+	roundWinOverlay.visible = false
 
 	_loadOpponentVisual()
 	await _playOpponentEntranceAnimation()
@@ -112,3 +119,13 @@ func _on_force_match():
 	if not inArena:
 		show_match()
 	execute_match()
+
+func _on_round_won():
+	roundWinTitle.text = "YOU WIN!"
+	roundWinSubtitle.text = "Prepare yourself for the next challenger!"
+	roundWinOverlay.visible = true
+
+	await get_tree().create_timer(2.2).timeout
+
+	roundWinOverlay.visible = false
+	GameManager.next_opponent()
