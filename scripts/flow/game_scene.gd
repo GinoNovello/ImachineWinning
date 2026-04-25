@@ -6,6 +6,7 @@ extends Node2D
 @onready var clock: Clock = $UI/Screens/Arena/Clock
 
 var inArena: bool = true
+var opponentVisual: OpponentVisual
 
 func _ready():
 	print("Game started")
@@ -20,6 +21,9 @@ func _ready():
 	await _playOpponentEntranceAnimation()
 	referee.startGame(player, opponent, clock)
 
+	if opponentVisual != null:
+		opponentVisual.playGameAnimation()
+
 func _loadOpponentVisual():
 	for child in opponentContainer.get_children():
 		child.free()
@@ -27,12 +31,13 @@ func _loadOpponentVisual():
 	var opponentScene = GameManager.get_current_opponent_scene()
 	var opponentInstance = opponentScene.instantiate()
 	opponentContainer.add_child(opponentInstance)
+	opponentVisual = opponentInstance as OpponentVisual
 
 func _playOpponentEntranceAnimation():
 	if opponentContainer.get_child_count() == 0:
 		return
 
-	var opponentVisual = opponentContainer.get_child(0) as OpponentVisual
+	opponentVisual = opponentContainer.get_child(0) as OpponentVisual
 	if opponentVisual == null:
 		return
 

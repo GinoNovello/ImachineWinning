@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnj8k7w0nj701"]
 
 [ext_resource type="Texture2D" uid="uid://drwf6f6l4smcc" path="res://Images/Menu.jpeg" id="1_kcm7k"]
-[ext_resource type="Script" uid="uid://cets3mv1hrjug" path="res://Scenes/results/lose_scene.gd" id="2_lose"]
+[ext_resource type="Script" path="res://Scenes/results/lose_scene.gd" id="2_lose"]
 [ext_resource type="FontFile" uid="uid://b1yhde38f0p65" path="res://Fonts/Jember Sketch.ttf" id="3_font"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
