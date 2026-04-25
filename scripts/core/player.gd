@@ -24,6 +24,7 @@ func increase_machine_force():
 	if not can_configure():
 		return
 
+	# Play animation logic here - you'll need to reference the config_area sleeve
 	machine.configure(machine.generateForce() + 1)
 
 func decrease_machine_force():
