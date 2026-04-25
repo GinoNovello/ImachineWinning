@@ -4,6 +4,7 @@ extends Node2D
 @onready var opponentContainer = $UI/Screens/Arena/OpponentContainer
 @onready var configArea = $UI/Screens/ConfigArea
 @onready var clock: Clock = $UI/Screens/Arena/Clock
+@onready var playerSprite: AnimatedSprite2D = $UI/Screens/Arena/PlayerContainer/AnimatedSprite2D
 
 var inArena: bool = true
 var opponentVisual: OpponentVisual
@@ -61,7 +62,17 @@ func execute_match():
 	var opponent = GameManager.opponent
 	var referee = GameManager.referee
 
-	player.playAgainst(opponent, referee)
+	playerSprite.visible = true
+	
+	# Play animation and execute result based on sleeve state
+	if player.isSleeveUp():
+		playerSprite.play("UNSLEEVE")
+		await playerSprite.animation_finished
+		referee.declareCheating(player, opponent)
+	else:
+		playerSprite.play("SLEEVE")
+		await playerSprite.animation_finished
+		player.playAgainst(opponent, referee)
 
 func show_config():
 	inArena = false
@@ -74,8 +85,6 @@ func show_match():
 	configArea.deactivate()
 	var tween = create_tween()
 	tween.tween_property(screens, "position:y", 0, 0.15)
-
-	start_match()
 
 func start_match():
 	var player = GameManager.player
