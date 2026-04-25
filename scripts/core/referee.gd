@@ -60,6 +60,7 @@ func declareHonestWin(_player: Player, _opponent: Opponent):
 	if opponentVisual != null:
 		opponentVisual.playLoseAnimation()
 		await opponentVisual.animatedSprite.animation_finished
+		await opponentVisual.get_tree().create_timer(1.0).timeout
 	_opponent.onDefeat()
 	_player.win()
 
@@ -68,6 +69,7 @@ func declareLose(_player: Player, _opponent: Opponent):
 	if opponentVisual != null:
 		opponentVisual.playWinAnimation()
 		await opponentVisual.animatedSprite.animation_finished
+		await opponentVisual.get_tree().create_timer(1.0).timeout
 	_opponent.onVictory()
 	_player.lose()
 
@@ -76,6 +78,7 @@ func declareCheating(_player: Player, _opponent: Opponent):
 	if opponentVisual != null:
 		opponentVisual.playDeathAnimation()
 		await opponentVisual.animatedSprite.animation_finished
+		await opponentVisual.get_tree().create_timer(1.0).timeout
 	_opponent.onDefeat()
 	_player.caughtCheating()
 

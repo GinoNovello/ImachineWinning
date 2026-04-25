@@ -78,6 +78,7 @@ func execute_match():
 			wtfSprite.z_index = 10
 		playerSprite.play("UNSLEEVE")
 		await playerSprite.animation_finished
+		await get_tree().create_timer(1.0).timeout
 		playerSprite.visible = false
 		# El referee detectará la trampa en checkImmediateConditions
 		referee.startMatch(player, opponent)
