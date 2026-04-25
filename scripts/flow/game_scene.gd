@@ -25,7 +25,21 @@ func _ready():
 
 	roundWinOverlay.visible = false
 
+	await _setupRound()
+
+func _setupRound(hide_overlay_before_entrance: bool = false):
+	var player = GameManager.player
+	var opponent = GameManager.opponent
+	var referee = GameManager.referee
+
+	inArena = true
+	playerSprite.visible = false
+
 	_loadOpponentVisual()
+
+	if hide_overlay_before_entrance:
+		roundWinOverlay.visible = false
+
 	await _playOpponentEntranceAnimation()
 
 	referee.opponentVisual = opponentVisual
@@ -127,5 +141,5 @@ func _on_round_won():
 
 	await get_tree().create_timer(2.2).timeout
 
-	roundWinOverlay.visible = false
 	GameManager.next_opponent()
+	await _setupRound(true)

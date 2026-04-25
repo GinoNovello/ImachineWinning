@@ -23,9 +23,9 @@ The outcome depends on:
 ### Possible Outcomes
 
 * ✅ Honest win
-* ❌ Loss
-* ⚠️ Win with cheating detected
-* ⏱️ Loss due to timeout (cheating detected)
+* ❌ Loss (player force lower than opponent's strength)
+* ⚠️ Caught with excessive force (player force exceeds strength + tolerance)
+* ⚠️ Caught with sleeve up (machine exposed before the match)
 
 ---
 
@@ -128,11 +128,11 @@ func lose():
 	pass
 
 func caughtCheating():
-	# cheating detected
+	# played with the sleeve up, the machine was exposed
 	pass
 
-func caughtCheatingAfterTimeIsOver():
-	# timeout cheating detected
+func caughtForExcessiveForce():
+	# won by too wide a margin, strength gave the machine away
 	pass
 ```
 
@@ -280,10 +280,13 @@ func declareLose(player: Player, opponent: Opponent):
 	player.lose()
 
 func declareCheating(player: Player, opponent: Opponent):
-	player.caughtCheating()
+	# force exceeded strength + tolerance
+	opponent.onDefeat()
+	player.caughtForExcessiveForce()
 
-func declareTimeLoss(player: Player):
-	player.caughtCheatingAfterTimeIsOver()
+func declareCheatingForSleeveUp(player: Player, opponent: Opponent):
+	# match started with the sleeve rolled up
+	player.caughtCheating()
 ```
 
 ---

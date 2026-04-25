@@ -50,7 +50,7 @@ func lose():
 	GameManager.go_to_lose_scene()
 
 func caughtCheating():
-	GameManager.go_to_lose_scene()
+	GameManager.go_to_cheating_lose_scene()
 
-func caughtCheatingAfterTimeIsOver():
-	GameManager.go_to_lose_scene()
+func caughtForExcessiveForce():
+	GameManager.go_to_excessive_force_lose_scene()
