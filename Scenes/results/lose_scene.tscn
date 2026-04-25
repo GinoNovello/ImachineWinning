@@ -1,25 +1,104 @@
 [gd_scene format=3 uid="uid://bnj8k7w0nj701"]
 
 [ext_resource type="Texture2D" uid="uid://drwf6f6l4smcc" path="res://Images/Menu.jpeg" id="1_kcm7k"]
+[ext_resource type="Script" uid="uid://cets3mv1hrjug" path="res://Scenes/results/lose_scene.gd" id="2_lose"]
+[ext_resource type="FontFile" uid="uid://b1yhde38f0p65" path="res://Fonts/Jember Sketch.ttf" id="3_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.07, 0.07, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 12
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(4.5724212e-07, 0.19441411, 0.1978297, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(1.4439226e-07, 0.33335435, 0.33814734, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
 
 [node name="LoseScene" type="Node2D" unique_id=1929948916]
+script = ExtResource("2_lose")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732400748]
 position = Vector2(466.25, 270)
 texture = ExtResource("1_kcm7k")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=527169767]
+[node name="Panel" type="Panel" parent="." unique_id=527169767]
 offset_left = 458.0
 offset_top = 88.0
 offset_right = 927.0
 offset_bottom = 488.0
-color = Color(0.015686275, 0.015686275, 0.015686275, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=1440450864]
+[node name="Label" type="Label" parent="Panel" unique_id=1440450864]
 layout_mode = 0
 offset_left = 17.0
-offset_top = 123.0
+offset_top = 30.0
 offset_right = 457.0
-offset_bottom = 260.0
-theme_override_font_sizes/font_size = 96
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 80
 text = "You Lose!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1165693232]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 180.0
+offset_right = 445.0
+offset_bottom = 380.0
+theme_override_constants/separation = 16
+
+[node name="Restart" type="Button" parent="Panel/VBoxContainer" unique_id=548207517]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer" unique_id=1951989357]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+text = "Main Menu"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
