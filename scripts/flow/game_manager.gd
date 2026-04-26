@@ -40,6 +40,9 @@ func start_new_game():
 	opponent = create_opponent()
 	referee = Referee.new()
 
+	get_tree().change_scene_to_file("res://Scenes/intro/intro.tscn")
+
+func start_game_scene():
 	get_tree().change_scene_to_file("res://Scenes/game/game_scene.tscn")
 
 func go_to_main_menu():
